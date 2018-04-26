@@ -27,6 +27,12 @@ export class LocaleService {
     return this._locale$.value;
   }
 
+  getLocale$(): Observable<Locale> {
+    return this._locale$
+      .asObservable()
+      .filter(l => l !== null);
+  }
+
   setTranslation(locale: Locale, key: string, value: string) {
     this._getTranslationMap(locale).setTranslation(key, value);
     this._update();
