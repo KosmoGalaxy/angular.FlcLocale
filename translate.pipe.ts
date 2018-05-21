@@ -41,9 +41,9 @@ export class TranslatePipe implements PipeTransform, OnDestroy {
 
   private _processValue(value: string | TranslationObject): string {
     if (_.isString(value)) {
-      return this._processString(value);
+      return this._processString(value as string);
     } else if (_.isObject(value)) {
-      return this._processTranslationObject(value);
+      return this._processTranslationObject(value as TranslationObject);
     }
   }
 
